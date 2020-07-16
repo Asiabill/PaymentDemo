@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>query orderInfo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="static/css/index.css"/>
+  <style>
+    table{
+      width: 25%;
+    }
+    td input{
+      border: 1px solid #d5d5d5;
+      height: 36px;
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 230px;
+      box-sizing: border-box;
+    }
+    .btn-group{
+      width: 100%;
+      clear: both;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    .btn{
+      display: block;
+    }
+    .modal-title{
+      font-size: 18px;
+      position: relative;
+      left: 20%;
+      display: inline-block;
+    }
+    #order{
+      padding-left: 10%;
+      padding-right: 10%;
+      position: relative;
+    }
+    li{
+      list-style: none;
+    }
+    li div{
+      display: inline-block;
+      width: 6%;
+      text-align: center;
+      font-size: 14px;
+      border-bottom: 1px solid #ebeef5;
+      line-height: 48px;
+    }
+    li div.w10{
+      width: 10%;
+    }
+    li div.w15{
+      width: 15%;
+    }
+    .tb-head div{
+      color: #909399;
+    }
+    .tb-body div{
+      color: #606266;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tb-cont{
+      position: relative;
+    }
+    .required{
+      position: absolute;
+      color: red;
+      top: 23px;
+      left: 236px;
+    }
+    #ab-message{
+      display: inline-block;
+      width: 90%;
+      max-width: 580px;
+      box-sizing:border-box;
+      border-radius:4px;
+      border:1px solid #ebeef5;
+      position:fixed;
+      left:50%;
+      top: -72px;
+      transform:translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      overflow:hidden;
+      opacity: 0;
+      padding:15px 15px 15px 20px;
+      transition: opacity .3s,transform .4s,top .4s;
+      -moz-transition: opacity .3s,transform .4s,top .4s;
+      -webkit-transition: opacity .3s,transform .4s,top .4s;
+      -o-transition: opacity .3s,transform .4s,top .4s;
+    }
+    #ab-message.messageShow{
+      animation: messageShow .3s ease-in .1s forwards alternate;
+      -webkit-animation: messageShow .3s ease-in .1s forwards alternate;
+    }
+    .ab-message-error{
+      background-color:#fef0f0;
+      border-color:#fde2e2;
+      color:#f56c6c;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div>
+    <svg id="logo" class="blue" data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453.54 104.63">
+      <defs>
+        <style>#logo .cls-1{fill:#e7242e;fill-rule:evenodd;}</style>
+      </defs>
+      <title>Asiabill</title>
+      <polygon class="cls-1" points="64.83 25.14 67.83 51.7 88.64 51.7 81.84 4.37 55.13 4.37 0 102.9 22.79 102.9 64.83 25.14"></polygon>
+      <path class="cls-2" d="M119.14,103.19c6.92,3.43,25.77,5.87,32.26.74a6.66,6.66,0,0,0-1-11c-3.85-2-9.55-3.91-14.79-6.3-16.1-7.2-16.39-27.77-1.82-36.36,10.86-6.41,29.34-6.92,42.07-2.61l-2,14.2c-6.12-1.76-18.31-3.83-25.34-1.59a6.7,6.7,0,0,0-1.44,12.33A13.27,13.27,0,0,0,150.6,74c14.91,3.62,23.65,9.29,22.6,23-1.51,10.8-8.59,17.18-17.38,20.5-11.54,4.39-27.1,3.91-38.55-.71Z" transform="translate(-16.87 -16)"></path>
+      <polygon class="cls-2" points="44.78 62.22 90.17 62.22 96.01 102.9 73.22 102.9 70.7 80.33 34.99 80.33 44.78 62.22"></polygon>
+      <polygon class="cls-2" points="347.53 102.9 357.56 32.74 378.06 32.74 367.99 102.9 347.53 102.9"></polygon>
+      <polygon class="cls-2" points="358.89 23.22 361.59 4.37 382.05 4.37 379.36 23.22 358.89 23.22"></polygon>
+      <path class="cls-2" d="M242.53,84.51c-7.59,0-12.24,5.22-12.56,12.56-.53,12.67,22.37,13.41,25.4-6.72l.88-5.84Zm34.24-8.11-6.06,42.49h-19.5l1.24-8.87h-.25c-5.93,8-13.32,10.6-22.57,10.6-30,0-23.61-47.33,8.45-47.33h19.73c1.13-7.94-3.09-11.51-7-12.56-7.26-1.93-23.7,1-28.88,3l1.92-14.63c13.67-4,36.68-8.27,48.39,6.89,5.13,6.72,5.56,13.38,4.56,20.38Z" transform="translate(-16.87 -16)"></path>
+      <path class="cls-2" d="M314.59,36,311.1,60.39h10q7.18,0,11.82-3.46a13.8,13.8,0,0,0,5.5-9.61Q340,36,323.49,36ZM308.86,76.2,305,103.25h12.44c5.33,0,9.64-1.22,13-3.69a14.75,14.75,0,0,0,6-10.23c.59-4.17-.46-7.37-3.06-9.7s-6.72-3.43-12.19-3.43Zm-27.1,42.69,14.06-98.53h35q16.08,0,23.93,6.1t6.32,16.92c-1.25,8.79-10.49,20-19.28,22.42l0,.23c11.17,1.42,18.23,12.36,16.64,23.61A31,31,0,0,1,345.83,111q-10.68,7.91-27.22,7.9Z" transform="translate(-16.87 -16)"></path><polygon class="cls-2" points="382.88 102.9 396.96 4.37 418.05 0 403.37 102.9 382.88 102.9"></polygon><polygon class="cls-2" points="161.41 102.9 171.47 32.74 191.93 32.74 181.87 102.9 161.41 102.9"></polygon>
+      <polygon class="cls-2" points="172.77 23.22 175.46 4.37 195.93 4.37 193.24 23.22 172.77 23.22"></polygon>
+      <polygon class="cls-2" points="418.34 102.9 432.45 4.37 453.54 0 438.83 102.9 418.34 102.9"></polygon></svg>
+  </div>
+</header>
+<div style="padding-top: 20px;">
+  <div class="modal-title">查询条件</div>
+  <form id="queryOrderForm">
+    <table>
+      <tr>
+        <td class="tb-title">网关接入号：</td>
+        <td class="tb-cont"><input type="text" name="accountId" value=""><span class="required">*</span></td>
+      </tr>
+      <tr>
+        <td class="tb-title">商户订单号：</td>
+        <td class="tb-cont"><input type="text" name="reference"><span class="required">*</span></td>
+      </tr>
+    </table>
+  </form>
+  <div class="btn-group">
+    <div class="btn-group-inner">
+      <div class="btn jump" id="queryOrderBt">查询</div>
+    </div>
+  </div>
+</div>
+<div class="modal-title">查询结果</div>
+<div id="order"></div>
+<div id="ab-message">
+  <div class="ab-message-content"></div>
+</div>
+</body>
+<script src = static/js/jquery-3.5.1.js></script>
+<script>
+  let noData = "<div style='text-align: center;font-size: 14px;color: #909399;'>No data.</div>";
+  $("#order").html(noData);
+  $("#queryOrderBt").click(function () {
+      var formData = $("#queryOrderForm").serialize();
+      $.ajax({
+          url: "query/queryOrder",
+          dataType: "json",
+          type: "post",
+          data: formData,
+          success: function (data) {
+              $("#order").empty();
+              if (data.code === 200) {
+                  var orders = "<ul><li class='tb-head'><div>商户号</div><div>网关接入号</div><div class='w10'>商户订单号</div><div class='w15'>流水订单号</div><div class='w10'>交易时间</div><div>交易金额</div><div>交易币种</div><div class='w15'>交易网站</div><div class='w15'>交易结果</div><div class='w10'>授权状态</div></li>";
+                  for (let i = 0; i < data.data.length; i ++) {
+                      let order = data.data[i];
+                      orders += "<li class='tb-body'>";
+                      orders += "<div>" + (order.merNo ? order.merNo : '--') + "</div>";
+                      orders += "<div>" + (order.gatewayNo ? order.gatewayNo : '--') + "</div>";
+                      orders += "<div class='w10'>" + (order.orderNo ? order.orderNo : '--') + "</div>";
+                      orders += "<div class='w15' title='"+ order.tradeNo +"'>" + (order.tradeNo ? order.tradeNo : '--') + "</div>";
+                      orders += "<div class='w10'>" + (order.tradeDate ? order.tradeDate : '--') + "</div>";
+                      orders += "<div>" + (order.tradeAmount ? order.tradeAmount : '--') + "</div>";
+                      orders += "<div>" + (order.tradeCurrency ? order.tradeCurrency : '--') + "</div>";
+                      orders += "<div class='w15' title='" + order.sourceWebSite +"'>" + (order.sourceWebSite ? order.sourceWebSite : '--') + "</div>";
+                      orders += "<div class='w15' title='"+ getOrderStatus(order.queryResult) +"'>" + getOrderStatus(order.queryResult) + "</div>";
+                      orders += "<div class='w10'>" + getAuthStatus(order.authStatus) + "</div>";
+                      orders += "</li>";
+                  }
+                  orders += "</ul>";
+                  $("#order").html(orders)
+              } else {
+                  $("#order").html(noData);
+                  showMessage(document.getElementById("ab-message"), 5000, "ERROR: " + data.msg);
+              }
+          },
+          error: function (data) {
+
+          }
+      });
+  });
+  let getOrderStatus = function(code){
+      switch (code){
+          case "0":
+              return "失败";
+              break;
+          case "1":
+              return "成功";
+              break;
+          case "2":
+              return "订单不存在";
+              break;
+          case "3":
+              return "传入的参数不完整";
+              break;
+          case "4":
+              return "订单查询过多,(最多只能查询100笔)";
+              break;
+          case "5":
+              return "商户号或者网关接入号不存在";
+              break;
+          case "6":
+              return "signInfo 加密信息错误";
+              break;
+          case "7":
+              return "你方服务器IP未登记";
+              break;
+          case "999":
+              return "系统异常";
+              break;
+          case "-2":
+              return "待确认";
+              break;
+          case "-1":
+              return "待处理";
+              break;
+          default:
+              return "--";
+              break;
+      }
+  }
+  let getAuthStatus = function(code){
+      switch (code){
+          case "0":
+              return "未使用授权";
+              break;
+          case "1":
+              return "授权失败";
+              break;
+          case "2":
+              return "待处理";
+              break;
+          case "3":
+              return "授权成功";
+              break;
+          default:
+              return "--";
+              break;
+      }
+  }
+  let showMessage = function(errorEle, time, mes, type) {
+      if (errorEle){
+          var cl = "ab-message-error";
+          if (type) {
+              cl = type;
+          }
+          errorEle.classList.remove();
+          errorEle.classList.add(cl);
+          errorEle.style.top = 20 + "px";
+          errorEle.innerHTML = mes;
+          errorEle.style.opacity = 1;
+          clearTimeout();
+          setTimeout(function(){
+              errorEle.style.opacity = 0;
+              errorEle.style.top = -72 + 'px';
+              errorEle.innerHTML = "";
+          }, time);
+      }
+  }
+</script>
+</html>

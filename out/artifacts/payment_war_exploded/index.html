@@ -1,0 +1,114 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="box" align="center">
+    <form action="payment/creditcard" method="post" id="testForm">
+        <div class="maincontent">
+            <h2>支付页面</h2>
+            <div >
+                <h3>交易数据</h3>
+                <table border="1">
+                    <tr>
+                        <td>网关接入号：</td>
+                        <td><input type="text" name="accountId" value="12258001"></td>
+                    </tr>
+                    <tr>
+                        <td>交易金额：</td>
+                        <td><input type="text" name="amount" value="0.01"></td>
+                    </tr>
+                    <tr>
+                        <td>交易币种：</td>
+                        <td><input type="text" name="currency" value="USD"></td>
+                    </tr>
+                    <tr>
+                        <td>订单号：</td>
+                        <td><input type="text" name="reference" value="1593425095358"></td>
+                    </tr>
+                    <tr>
+                        <td>firstName：</td>
+                        <td><input type="text" name="customerFirstName" value="flank"></td>
+                    </tr>
+                    <tr>
+                        <td>lastName：</td>
+                        <td><input type="text" name="customerLastName" value="A"></td>
+                    </tr>
+                    <tr>
+                        <td>email：</td>
+                        <td><input type="text" name="customerEmail" value="support@asiabill.com"></td>
+                    </tr>
+                    <tr>
+                        <td>联系电话：</td>
+                        <td><input type="text" name="customerPhone" value="13712341234"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>收件人信息</h3>
+                <table border="1">
+                    <tr>
+                        <td>收件人姓：</td>
+                        <td><input type="text" name="customerShippingFirstName" value="flank"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人名：</td>
+                        <td><input type="text" name="customerShippingLastName" value="ming"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人电话：</td>
+                        <td><input type="text" name="customerShippingPhone" value="12312341234"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人国家：</td>
+                        <td><input type="text" name="customerShippingCountry" value="country"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人城市：</td>
+                        <td><input type="text" name="customerShippingCity" value="city"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人地址：</td>
+                        <td><input type="text" name="customerShippingAddress1" value="address"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人邮编：</td>
+                        <td><input type="text" name="customerShippingZip" value="330100"></td>
+                    </tr>
+                    <tr>
+                        <td>收件人州：</td>
+                        <td><input type="text" name="customerShippingState" value="state"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Credit Card信息</h3>
+                <table border="1">
+                    <tr>
+                        <td>邮编：</td>
+                        <td><input type="text" name="customerBillingZip" value="330100"></td>
+                    </tr>
+                    <tr>
+                        <td>国家：</td>
+                        <td><input type="text" name="customerBillingCountry" value="jp"></td>
+                    </tr>
+                    <tr>
+                        <td>州/省：</td>
+                        <td><input type="text" name="customerBillingState" value="to"></td>
+                    </tr>
+                    <tr>
+                        <td>市：</td>
+                        <td><input type="text" name="customerBillingCity" value="city"></td>
+                    </tr>
+                    <tr>
+                        <td>地址：</td>
+                        <td><input type="text" name="customerBillingAddress1" value="address"></td>
+                    </tr>
+                </table>
+            </div>
+            <input type="submit" value="提交">
+        </div>
+    </form>
+</div>
+</body>
+</html>

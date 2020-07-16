@@ -1,0 +1,106 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+header{
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+header div{
+    display: inline-block;
+    width: 135px;
+    height: 35px;
+    position: relative;
+    left: 20%;
+    top: 15px;
+}
+header div svg {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+header div svg.blue .cls-2 {
+    fill: #1b4ca8;
+}
+.maincontent{
+    padding: 20px 40px;
+}
+.modal-title{
+    padding: 10px 0 30px 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+.modal-part{
+    padding: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    width: 28%;
+    float: left;
+    margin-left: 2.6%;
+    margin-right: 2.6%;
+    box-sizing: border-box;
+}
+.modal-part > div{
+    font-size: 16px;
+    color: #303133;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ebeef5;
+    text-align: left;
+}
+td {
+    font-size: 14px;
+    color: #555;
+    padding-top: 12px;
+    white-space: nowrap;
+}
+td input{
+    -webkit-appearance: none;
+    border: 0;
+    color: #555;
+}
+.tb-title{
+    width: 25%;
+}
+.tb-cont{
+    width: 75%;
+}
+table{
+    width: 90%;
+}
+.btn-group{
+    width: 100%;
+    clear: both;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.btn{
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+    background: #0195ff;
+    color: #fff;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    text-indent: 10px;
+    letter-spacing: 8px;
+    text-align: center;
+}
+.btn:hover{
+    opacity: .9;
+}
+@media (max-width: 1092px) {
+    .modal-part{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+        max-width: 500px;
+        float: none;
+    }
+}

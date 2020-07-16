@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<!-- appender 部分是可用的日志输出方式定义,可以定义多个 -->
+	
+	<!-- 控制台接受所有级别的日志信息 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss a}  [Thread: %t][Method: %l]%n%p:%m%n" />
+		</layout>
+	</appender>
+
+
+</log4j:configuration> 
