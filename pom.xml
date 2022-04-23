@@ -15,7 +15,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring-core.version>5.1.5.RELEASE</spring-core.version>
+    <spring-core.version>5.3.19</spring-core.version>
     <spring-context.version>5.1.5.RELEASE</spring-context.version>
     <spring-web.version>5.1.5.RELEASE</spring-web.version>
     <spring-webmvc.version>5.1.5.RELEASE</spring-webmvc.version>
